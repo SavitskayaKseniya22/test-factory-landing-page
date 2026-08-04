@@ -1,4 +1,4 @@
-# [Factory](https://factory-beige.vercel.app/)
+# [Factory](https://test-factory-landing-page.netlify.app/)
 
 Landing page for a factory.
 
