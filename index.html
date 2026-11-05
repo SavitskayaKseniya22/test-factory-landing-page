@@ -16,111 +16,127 @@
     />
   </head>
   <body>
-    <nav class="navbar-expand-lg" aria-label="Основная навигация">
-      <header class="header">
-        <div class="container_inner">
-          <button
-            type="button"
-            class="btn btn_burger navbar-toggler"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#navbarOffcanvasLg"
-            aria-controls="navbarOffcanvasLg"
-            aria-label="Открыть меню и анкету"
-          >
-            <svg width="36" height="36">
-              <use xlink:href="./assets/images/svg/sprite.svg#burger" />
-            </svg>
-          </button>
-          <a href="#top" aria-label="Пестовский лесокомбинат — на главную">
-            <svg class="header__logo">
-              <use xlink:href="./assets/images/svg/sprite.svg#logo" />
-            </svg>
-          </a>
+    <header class="header">
+      <div class="container_inner">
+        <button
+          type="button"
+          class="btn btn--burger navbar-toggler"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#navbarOffcanvasLg"
+          aria-controls="navbarOffcanvasLg"
+          aria-label="Открыть меню и анкету"
+        >
+          <svg width="36" height="36">
+            <use xlink:href="./assets/images/svg/sprite.svg#burger" />
+          </svg>
+        </button>
+        <a href="#top" aria-label="Пестовский лесокомбинат — на главную">
+          <svg class="header__logo">
+            <use xlink:href="./assets/images/svg/sprite.svg#logo" />
+          </svg>
+        </a>
+        <nav aria-label="Основная навигация">
           <ul class="header__nav">
             <li><a href="#top">Главная</a></li>
             <li><a href="#products">Дома и бани</a></li>
           </ul>
-          <ul class="header__contacts">
-            <li>
-              <a href="tel:+78126037222"><span class="header__label">Санкт-Петербург: </span>8 (812) 603-72-22</a>
-            </li>
-            <li>
-              <a href="tel:+74993807733"><span class="header__label">Москва: </span>8 (499) 380-77-33</a>
-            </li>
-          </ul>
+        </nav>
+        <ul class="header__contacts">
+          <li>
+            <a href="tel:+78126037222"><span class="header__label">Санкт-Петербург: </span>8 (812) 603-72-22</a>
+          </li>
+          <li>
+            <a href="tel:+74993807733"><span class="header__label">Москва: </span>8 (499) 380-77-33</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="applicationTitle">
+      <header class="header">
+        <div class="container_inner container_inner_offcanvas">
+          <button type="button" class="btn btn--burger navbar-toggler" data-bs-dismiss="offcanvas" aria-label="Close">
+            <svg width="36" height="36">
+              <use xlink:href="./assets/images/svg/sprite.svg#cross-black" />
+            </svg>
+          </button>
         </div>
       </header>
+      <section class="application">
+        <form class="application__form">
+          <h2 id="applicationTitle">Заполните анкету</h2>
 
-      <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="navbarOffcanvasLg"
-        aria-labelledby="applicationTitle"
-      >
-        <header class="header">
-          <div class="container_inner container_inner_offcanvas">
-            <button type="button" class="btn btn_burger navbar-toggler" data-bs-dismiss="offcanvas" aria-label="Close">
-              <svg width="36" height="36">
-                <use xlink:href="./assets/images/svg/sprite.svg#cross-black" />
-              </svg>
-            </button>
-          </div>
-        </header>
-        <section class="application">
-          <form class="application__form">
-            <h2 id="applicationTitle">Заполните анкету</h2>
-
-            <div class="application__content">
-              <section>
-                <label for="name" class="label_underlined">
-                    <input type="text" name="name" id="name" placeholder="Ф.И.О" aria-label="Фамилия, имя и отчество" autocomplete="name" required />
-                </label>
-                <label for="tel" class="label_underlined">
-                    <input type="tel" name="tel" id="tel" placeholder="Телефон" aria-label="Телефон" autocomplete="tel" required />
-                </label>
-              </section>
-
-              <label for="vacancies" class="label_underlined">
-                <h3>Отклик на вакансию</h3>
-
-                <select name="vacancies" id="vacancies" required>
-                  <option value="" selected disabled>Выберите вакансию</option>
-                  <option value="Прораб">Прораб</option>
-                  <option value="Логист">Логист</option>
-                </select>
+          <div class="application__content">
+            <section>
+              <label for="name" class="label_underlined">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Ф.И.О"
+                  aria-label="Фамилия, имя и отчество"
+                  autocomplete="name"
+                  required
+                />
               </label>
+              <label for="tel" class="label_underlined">
+                <input
+                  type="tel"
+                  name="tel"
+                  id="tel"
+                  placeholder="Телефон"
+                  aria-label="Телефон"
+                  autocomplete="tel"
+                  required
+                />
+              </label>
+            </section>
 
-              <section class="application__cv">
-                <h3>Ваше резюме</h3>
-                <p>
-                  Есть резюме в формате .pdf или .doc?
-                  <br />
-                  Приложите и отправьте его нам.
-                </p>
-                <label for="cv" class="btn btn_red">
-                  Загрузить файл
+            <div class="label_underlined">
+              <h3>Отклик на вакансию</h3>
 
-                  <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
-                </label>
-              </section>
+              <select name="vacancies" id="vacancies" aria-label="Вакансия" required>
+                <option value="" selected disabled>Выберите вакансию</option>
+                <option value="Прораб">Прораб</option>
+                <option value="Логист">Логист</option>
+              </select>
             </div>
 
-            <label for="confirmation" class="application__confirmation">
-              <input type="checkbox" name="confirmation" id="confirmation" required />
+            <section class="application__cv">
+              <h3>Ваше резюме</h3>
               <p>
-                <span
-                  >Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на
-                  обработку персональных данных физическим лицом. Я осознаю, что даю Согласие на обработку персональных
-                  данных для использования предоставляемых возможностей Веб-сервиса.</span
-                >
-                <span>Я достиг(ла) 18-летнего возраста</span>
+                Есть резюме в формате .pdf или .doc?
+                <br />
+                Приложите и отправьте его нам.
               </p>
+              <label for="cv" class="btn btn--red">
+                Загрузить файл
+
+                <input
+                  type="file"
+                  id="cv"
+                  name="cv"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                />
+              </label>
+            </section>
+          </div>
+
+          <div class="application__confirmation">
+            <input type="checkbox" name="confirmation" id="confirmation" required />
+            <label for="confirmation">
+              <span
+                >Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на обработку
+                персональных данных физическим лицом. Я осознаю, что даю Согласие на обработку персональных данных для
+                использования предоставляемых возможностей Веб-сервиса.</span
+              >
+              <span>Я достиг(ла) 18-летнего возраста</span>
             </label>
-            <button class="btn btn_red" type="submit">Отправить анкету</button>
-          </form>
-        </section>
-      </div>
-    </nav>
+          </div>
+          <button class="btn btn--red" type="submit">Отправить анкету</button>
+        </form>
+      </section>
+    </div>
 
     <main>
       <section class="hero" id="top">
@@ -130,7 +146,15 @@
             <h3>Cтань частью нашей команды!</h3>
           </div>
 
-          <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">Отправить анкету</button>
+          <button
+            type="button"
+            class="btn btn--red"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#navbarOffcanvasLg"
+            aria-controls="navbarOffcanvasLg"
+          >
+            Отправить анкету
+          </button>
         </div>
       </section>
       <section class="about-us">
@@ -159,39 +183,39 @@
       <section class="vacancies">
         <div class="container_inner">
           <h2 class="vacancies__title">выбери подразделение:</h2>
-          <input type="radio" name="vacancies" id="vacancies-1" class="vacancies__radio" checked />
-          <input type="radio" name="vacancies" id="vacancies-2" class="vacancies__radio" />
-          <input type="radio" name="vacancies" id="vacancies-3" class="vacancies__radio" />
-          <input type="radio" name="vacancies" id="vacancies-4" class="vacancies__radio" />
-          <input type="radio" name="vacancies" id="vacancies-5" class="vacancies__radio" />
+          <input type="radio" name="vacancy-department" id="vacancies-1" class="vacancies__radio" checked />
+          <input type="radio" name="vacancy-department" id="vacancies-2" class="vacancies__radio" />
+          <input type="radio" name="vacancy-department" id="vacancies-3" class="vacancies__radio" />
+          <input type="radio" name="vacancy-department" id="vacancies-4" class="vacancies__radio" />
+          <input type="radio" name="vacancy-department" id="vacancies-5" class="vacancies__radio" />
 
           <div class="vacancies__controls">
-            <label for="vacancies-1" class="btn btn_gray">строительный отдел</label>
-            <label for="vacancies-2" class="btn btn_gray">офис</label>
-            <label for="vacancies-3" class="btn btn_gray">финансовый отдел</label>
-            <label for="vacancies-4" class="btn btn_gray">отдел продаж</label>
-            <label for="vacancies-5" class="btn btn_gray">внештатный сотрудник</label>
+            <label for="vacancies-1" class="btn btn--gray">строительный отдел</label>
+            <label for="vacancies-2" class="btn btn--gray">офис</label>
+            <label for="vacancies-3" class="btn btn--gray">финансовый отдел</label>
+            <label for="vacancies-4" class="btn btn--gray">отдел продаж</label>
+            <label for="vacancies-5" class="btn btn--gray">внештатный сотрудник</label>
           </div>
 
           <ul class="vacancies__list" data-id="vacancies-1">
             <li class="vacancies__item">
               <div class="vacancies__header">
-                <div class="vacancy__info">
-                  <h3 class="vacancy__title">Прораб</h3>
-                  <p class="vacancy__price">от 00 000 руб</p>
+                <div class="vacancies__info">
+                  <h3 class="vacancies__position">Прораб</h3>
+                  <p class="vacancies__salary">от 00 000 руб</p>
                 </div>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseVacancy000"
                   aria-expanded="false"
                   aria-controls="collapseVacancy000"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -224,22 +248,22 @@
             </li>
             <li class="vacancies__item">
               <div class="vacancies__header">
-                <div class="vacancy__info">
-                  <h3 class="vacancy__title">Специалист службы снабжения</h3>
-                  <p class="vacancy__price">от 00 000 руб</p>
+                <div class="vacancies__info">
+                  <h3 class="vacancies__position">Специалист службы снабжения</h3>
+                  <p class="vacancies__salary">от 00 000 руб</p>
                 </div>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseVacancy001"
                   aria-expanded="false"
                   aria-controls="collapseVacancy001"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -272,29 +296,37 @@
             </li>
           </ul>
 
-          <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">откликнуться на вакансию</button>
+          <button
+            type="button"
+            class="btn btn--red"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#navbarOffcanvasLg"
+            aria-controls="navbarOffcanvasLg"
+          >
+            откликнуться на вакансию
+          </button>
         </div>
       </section>
 
       <section class="advantages">
         <div class="container_inner">
           <h2>преимущества компании</h2>
-          <ul class="advantages__list_mobile">
+          <ul class="advantages__list advantages__list--mobile">
             <li class="advantages__item">
               <div class="advantages__header">
                 <h3>Качество продукта</h3>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseQuality"
                   aria-expanded="false"
                   aria-controls="collapseQuality"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -309,16 +341,16 @@
                 <h3>Популярность бренда в сети</h3>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapsePopularity"
                   aria-expanded="false"
                   aria-controls="collapsePopularity"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -333,16 +365,16 @@
                 <h3>Передовое рабочее место</h3>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseWorkPlace"
                   aria-expanded="false"
                   aria-controls="collapseWorkPlace"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -357,16 +389,16 @@
                 <h3>Свои автоматизированные системы обучения</h3>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseAutomatisation"
                   aria-expanded="false"
                   aria-controls="collapseAutomatisation"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -381,16 +413,16 @@
                 <h3>Сотрудничество с ведущими Компаниями рынка</h3>
                 <button
                   type="button"
-                  class="btn btn_collapse-control"
+                  class="btn btn__collapse-control"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseCollaboration"
                   aria-expanded="false"
                   aria-controls="collapseCollaboration"
                 >
-                  <svg class="collapse_true">
+                  <svg class="btn__icon btn__icon--plus">
                     <use xlink:href="./assets/images/svg/sprite.svg#plus" />
                   </svg>
-                  <svg class="collapse_false">
+                  <svg class="btn__icon btn__icon--cross">
                     <use xlink:href="./assets/images/svg/sprite.svg#cross" />
                   </svg>
                 </button>
@@ -402,7 +434,7 @@
             </li>
           </ul>
 
-          <ul class="advantages__list_desktop">
+          <ul class="advantages__list advantages__list--desktop">
             <li class="advantages__item">
               <img src="/assets/images/svg/medal.svg" alt="Медаль" />
               <div class="advantages__content">
@@ -463,8 +495,8 @@
           <input type="radio" name="products" id="products-sauna" class="products__radio" checked />
           <input type="radio" name="products" id="products-house" class="products__radio" />
           <div class="products__controls">
-            <label for="products-sauna" class="btn btn_gray">Бани</label>
-            <label for="products-house" class="btn btn_gray">Дома</label>
+            <label for="products-sauna" class="btn btn--gray">Бани</label>
+            <label for="products-house" class="btn btn--gray">Дома</label>
           </div>
 
           <swiper-container
@@ -593,7 +625,15 @@
               Если чувствуешь в Себе потенциал и здоровые <br />
               амбиции &mdash; ждем рядом с Нами!
             </p>
-            <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">присоединитсья к команде</button>
+            <button
+              type="button"
+              class="btn btn--red"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#navbarOffcanvasLg"
+              aria-controls="navbarOffcanvasLg"
+            >
+              присоединитсья к команде
+            </button>
           </div>
         </div>
       </section>
@@ -605,8 +645,8 @@
             <h2>Контакты</h2>
 
             <div class="contacts__controls">
-              <label for="contacts-spb" class="btn btn_gray">Санкт-Петербург</label>
-              <label for="contacts-msk" class="btn btn_gray">Москва</label>
+              <label for="contacts-spb" class="btn btn--gray">Санкт-Петербург</label>
+              <label for="contacts-msk" class="btn btn--gray">Москва</label>
             </div>
 
             <ul class="contacts__details" data-id="contacts-spb">
@@ -696,7 +736,12 @@
       </div>
     </footer>
     <script type="module" src="/main.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   </body>
 </html>
