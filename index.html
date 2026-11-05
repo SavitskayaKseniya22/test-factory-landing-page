@@ -1,18 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Работа в Пестовском лесокомбинате: актуальные вакансии, команда и контакты." />
     <title>Пестовский лесокомбинат</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
-      integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,7 +16,7 @@
     />
   </head>
   <body>
-    <nav class="navbar-expand-lg">
+    <nav class="navbar-expand-lg" aria-label="Основная навигация">
       <header class="header">
         <div class="container_inner">
           <button
@@ -30,20 +25,20 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#navbarOffcanvasLg"
             aria-controls="navbarOffcanvasLg"
+            aria-label="Открыть меню и анкету"
           >
             <svg width="36" height="36">
               <use xlink:href="./assets/images/svg/sprite.svg#burger" />
             </svg>
           </button>
-          <a href="#">
+          <a href="#top" aria-label="Пестовский лесокомбинат — на главную">
             <svg class="header__logo">
               <use xlink:href="./assets/images/svg/sprite.svg#logo" />
             </svg>
           </a>
           <ul class="header__nav">
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Дома</a></li>
-            <li><a href="#">Бани</a></li>
+            <li><a href="#top">Главная</a></li>
+            <li><a href="#products">Дома и бани</a></li>
           </ul>
           <ul class="header__contacts">
             <li>
@@ -60,7 +55,7 @@
         class="offcanvas offcanvas-start"
         tabindex="-1"
         id="navbarOffcanvasLg"
-        aria-labelledby="navbarOffcanvasLgLabel"
+        aria-labelledby="applicationTitle"
       >
         <header class="header">
           <div class="container_inner container_inner_offcanvas">
@@ -72,24 +67,24 @@
           </div>
         </header>
         <section class="application">
-          <form action="" class="application__form">
-            <h2>Заполните анкету</h2>
+          <form class="application__form">
+            <h2 id="applicationTitle">Заполните анкету</h2>
 
             <div class="application__content">
               <section>
                 <label for="name" class="label_underlined">
-                  <input type="text" name="name" id="name" placeholder="Ф.И.О" />
+                    <input type="text" name="name" id="name" placeholder="Ф.И.О" aria-label="Фамилия, имя и отчество" autocomplete="name" required />
                 </label>
                 <label for="tel" class="label_underlined">
-                  <input type="number" name="tel" id="tel" placeholder="Телефон" />
+                    <input type="tel" name="tel" id="tel" placeholder="Телефон" aria-label="Телефон" autocomplete="tel" required />
                 </label>
               </section>
 
               <label for="vacancies" class="label_underlined">
                 <h3>Отклик на вакансию</h3>
 
-                <select name="vacancies" id="vacancies">
-                  <option selected>Выберите вакансию</option>
+                <select name="vacancies" id="vacancies" required>
+                  <option value="" selected disabled>Выберите вакансию</option>
                   <option value="Прораб">Прораб</option>
                   <option value="Логист">Логист</option>
                 </select>
@@ -105,13 +100,13 @@
                 <label for="cv" class="btn btn_red">
                   Загрузить файл
 
-                  <input type="file" id="cv" name="cv" accept="image/png, image/jpeg" />
+                  <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                 </label>
               </section>
             </div>
 
             <label for="confirmation" class="application__confirmation">
-              <input type="checkbox" name="confirmation" id="confirmation" />
+              <input type="checkbox" name="confirmation" id="confirmation" required />
               <p>
                 <span
                   >Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на
@@ -121,21 +116,21 @@
                 <span>Я достиг(ла) 18-летнего возраста</span>
               </p>
             </label>
-            <button class="btn btn_red" type="button">Отправить анкету</button>
+            <button class="btn btn_red" type="submit">Отправить анкету</button>
           </form>
         </section>
       </div>
     </nav>
 
     <main>
-      <section class="hero">
+      <section class="hero" id="top">
         <div class="container_inner">
           <div class="hero__content">
             <h1>«пестовский лесокомбинат»</h1>
             <h3>Cтань частью нашей команды!</h3>
           </div>
 
-          <button type="button" class="btn btn_red">Отправить анкету</button>
+          <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">Отправить анкету</button>
         </div>
       </section>
       <section class="about-us">
@@ -277,7 +272,7 @@
             </li>
           </ul>
 
-          <button type="button" class="btn btn_red">откликнуться на вакансию</button>
+          <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">откликнуться на вакансию</button>
         </div>
       </section>
 
@@ -462,7 +457,7 @@
         </div>
       </section>
 
-      <section class="products">
+      <section class="products" id="products">
         <div class="container_inner">
           <h2>продукты компании</h2>
           <input type="radio" name="products" id="products-sauna" class="products__radio" checked />
@@ -598,7 +593,7 @@
               Если чувствуешь в Себе потенциал и здоровые <br />
               амбиции &mdash; ждем рядом с Нами!
             </p>
-            <button type="button" class="btn btn_red">присоединитсья к команде</button>
+            <button type="button" class="btn btn_red" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">присоединитсья к команде</button>
           </div>
         </div>
       </section>
@@ -665,14 +660,16 @@
           <div class="contacts__map" data-id="contacts-spb">
             <iframe
               src="https://yandex.ru/map-widget/v1/?um=constructor%3Abc278a7241a2da8c218109ac17ed7791ab32e178617d48a30ea54aabd28aa21c&amp;source=constructor"
-              frameborder="0"
+              title="Карта офиса в Санкт-Петербурге"
+              loading="lazy"
             ></iframe>
           </div>
 
           <div class="contacts__map" data-id="contacts-msk">
             <iframe
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A89ab0cc3c3bc91b2b182930dfa6e1771fccb7d437b2eab3fd007eabdceb4cdca&amp;source=constructor"
-              frameborder="0"
+              title="Карта офиса в Москве"
+              loading="lazy"
             ></iframe>
           </div>
         </div>
@@ -699,11 +696,7 @@
       </div>
     </footer>
     <script type="module" src="/main.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   </body>
 </html>
